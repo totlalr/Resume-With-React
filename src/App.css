@@ -1,38 +1,408 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f2f2f2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.timeline-line {
+  position: relative;
+}
+.timeline-line::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: #1abc9c;
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  right: 50%;
+  margin-right: -1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#wrapper {
+  width: 1124px;
+  margin: 0px auto;
+  position: relative;
+  padding: 0px 20px;
+}
+#wrapper .margin-top-bottom {
+  margin: 30px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.well {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset !important;
 }
 
-.App-link {
-  color: #61dafb;
+.panel {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.05) !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.full-stack::before,
+.full-stack #timeline::before {
+  right: 0px;
+  margin-right: 1px;
+}
+.full-stack #timeline > li {
+  padding-left: 0px;
+  width: 100%;
+}
+.full-stack #timeline > li .hentry .panel-heading:before {
+  display: none;
+}
+
+.timeline-line {
+  position: relative;
+}
+.timeline-line::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: #1abc9c;
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  right: 50%;
+  margin-right: -1px;
+}
+
+#timeline {
+  list-style: none;
+  padding: 0 10px 40px;
+  margin: 0px auto;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#timeline h2 a,
+#timeline h2.entry-title {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+#timeline .col-md-3,
+#timeline .col-md-9,
+#timeline .col-sm-3,
+#timeline .col-sm-9,
+#timeline .col-xs-4,
+#timeline .col-xs-8 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#timeline:before {
+  content: "";
+  width: 2px;
+  height: 9999px;
+  background: #1abc9c;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  margin-right: -1px;
+}
+#timeline > li {
+  display: block;
+  width: 50%;
+  position: relative;
+  padding-top: 40px;
+}
+#timeline > li.hiddenElm {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+#timeline > li.visible {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  filter: alpha(opacity=1);
+}
+#timeline > li img {
+  margin: auto;
+}
+#timeline > li:nth-child(odd) {
+  float: right;
+  clear: right;
+  padding-left: 20px;
+}
+#timeline > li:nth-child(odd) .hentry:before {
+  left: -28px;
+}
+#timeline > li:nth-child(odd) .hentry .entry-date {
+  left: -2px;
+}
+#timeline > li:nth-child(odd) .hentry .entry-date::before {
+  content: "";
+  width: 12px;
+  height: 1px;
+  background-color: #de3f18;
+  left: -13px;
+  top: 8px;
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  zoom: 1;
+}
+#timeline > li:nth-child(odd) .hentry .pull-thumb {
+  float: left;
+}
+#timeline > li:nth-child(odd) .hentry .panel-heading:before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  border-color: #ddd;
+  background: #f5f5f5;
+  transform: rotate(45deg);
+}
+#timeline > li:nth-child(even) {
+  float: left;
+  clear: left;
+  padding-right: 20px;
+}
+#timeline > li:nth-child(even) .hentry:before {
+  right: -28px;
+}
+#timeline > li:nth-child(even) .hentry .entry-date {
+  right: -2px;
+}
+#timeline > li:nth-child(even) .hentry .entry-date::before {
+  content: "";
+  width: 12px;
+  height: 1px;
+  background-color: #de3f18;
+  right: -13px;
+  top: 8px;
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  zoom: 1;
+}
+#timeline > li:nth-child(even) .hentry .pull-thumb {
+  float: right;
+}
+#timeline > li:nth-child(even) .hentry .panel-heading:before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 2px;
+  width: 11px;
+  height: 11px;
+  border-width: 1px 1px 0 0;
+  border-style: solid;
+  border-color: #ddd;
+  background: #f5f5f5;
+  transform: rotate(45deg);
+}
+#timeline > li:nth-child(1),
+#timeline > li:nth-child(2) {
+  padding-top: 90px;
+}
+#timeline > li:nth-child(2) {
+  margin-top: 100px;
+}
+#timeline > li:hover .entry-date {
+  color: #fff !important;
+  border: 1px solid #e74c3c !important;
+  background: #dd5136 !important;
+}
+#timeline > li .hentry {
+  position: relative;
+  margin: 0 auto 10px;
+}
+#timeline > li .hentry .entry-date {
+  font-size: 11px;
+  font-family: Tahoma;
+  padding: 0 5px;
+  color: #fff;
+  border: 1px solid #16a085;
+  border-radius: 3px;
+  background: #1abc9c;
+  margin: 3px -3px 5px;
+  position: absolute;
+  top: -36px;
+  cursor: default;
+  transition: all 0.2s;
+}
+#timeline > li .hentry .entry-date:hover {
+  color: #fff;
+  border: 1px solid #e74c3c;
+  background: #dd5136;
+}
+#timeline > li .hentry .entry-title {
+  font-size: 13px;
+  vertical-align: middle;
+  text-align: left;
+  padding: 5px 0px;
+  margin: 0 0 2px;
+}
+#timeline > li .hentry .entry-title:hover a {
+  color: #e41111;
+}
+#timeline > li .hentry:hover:before,
+#timeline > li .hentry:hover .entry-date::before {
+  background: #fc0;
+  box-sizing: initial !important;
+}
+#timeline > li .hentry:before {
+  display: block;
+  position: absolute;
+  top: -32px;
+  content: "";
+  height: 8px;
+  width: 8px;
+  border: 4px solid #eee;
+  background: #de3f18;
+  box-sizing: initial !important;
+  border-radius: 8px;
+}
+#timeline > li .panel {
+  margin-bottom: 0;
+}
+#timeline > li.timeline-full {
+  clear: both;
+  float: none;
+  width: 100%;
+  padding: 0;
+}
+#timeline > li.timeline-full .hentry {
+  margin-top: 20px;
+  border-top: 12px solid #f2f2f2;
+}
+#timeline > li.timeline-full .hentry:before {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  left: 50%;
+  margin-left: -10px;
+  top: -20px;
+}
+#timeline > li.timeline-full .hentry .entry-date {
+  left: 50%;
+  margin-left: -40px;
+  top: -50px;
+}
+#timeline > li .panel-heading {
+  box-shadow: 0px 18px 19px -22px #ccc;
+}
+#timeline > li .entry-summary {
+  font: 9pt/18px tahoma;
+  color: #6e6e6e;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+#timeline > li .post-info {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  padding: 5px 0px;
+  -webkit-text-decoration: ltr;
+  text-decoration: ltr;
+  text-align: left;
+  font-family: Tahoma;
+}
+#timeline > li .post-info > div {
+  font-size: 11px;
+  display: inline-block;
+  cursor: default;
+}
+#timeline > li .post-info > div.author {
+  border-right: 1px solid #ddd;
+  line-height: 50%;
+  height: 15px;
+  vertical-align: top;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  margin-top: 5px;
+}
+#timeline > li .post-info > div.post-views {
+  line-height: 50%;
+  padding-left: 10px;
+}
+
+.streamContent {
+  margin-top: 10px;
+  margin-left: 10px;
+  position: relative;
+  zoom: 1;
+}
+.streamContent.longText {
+  border-bottom: 1px solid #363636;
+  padding-bottom: 12px;
+}
+.streamContent.skinBorder {
+  border-color: #e91212 !important;
+}
+.streamContent .streamContentInner {
+  font-size: 11px;
+  color: #6e6e6e;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 84px;
+  height: auto;
+}
+.streamContent .streamContentInner a {
+  display: inline-block;
+  font-weight: bold;
+  color: #6e6e6e;
+}
+.streamContent .streamContentInner a:hover {
+  color: #333;
+}
+.streamContent .streamContentExpansionToggler {
+  position: absolute;
+  right: 0px;
+  bottom: -11px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
+}
+.streamContent .sp-003 {
+  background-image: url("//bayanbox.ir/view/352250425512974157/sp-003.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 0px;
+  line-height: 0;
+  vertical-align: middle;
+  transition: 0s !important;
+  z-index: 99;
+}
+.streamContent .sp-003:hover {
+  transition: 0s !important;
+}
+.streamContent .sp-003.sx-003026 {
+  background-position: 0px 0px;
+  width: 27px;
+  height: 19px;
+}
+.streamContent .sp-003.sx-003027 {
+  background-position: 0px -19px;
+  width: 27px;
+  height: 19px;
+}
+
+.hentry {
+  position: relative;
+  margin: 0 auto 10px;
+}
+.hentry .entry-date {
+  font-size: 11px;
+  font-family: Tahoma;
+  padding: 0 5px;
+  color: #fff;
+  border: 1px solid #16a085;
+  border-radius: 3px;
+  background: #1abc9c;
+  margin: 3px -3px 5px;
+  transition: 0.25s;
+}
+.hentry .entry-date:hover {
+  color: #fff;
+  border: 1px solid #e74c3c;
+  background: #dd5136;
+}
+.hentry .entry-title {
+  margin: 0 0 2px;
+  font-size: 22px;
 }
